@@ -54,6 +54,7 @@ Demo [here](https://tanglepay.github.io/TanglePay-DeepLink/).
 3. Sign payload on chain
     - Index: TanglePay.Sign
     - Content: Decoded content specified in API.
+    - Example message: https://explorer.iota.org/devnet/message/d9bb6f4e6eb0e3ab01940a76535b984ab48fef3cb29158f98fbfe1af0536665b
 3. Parameters
 
 |Parameter   |Type    |Description|

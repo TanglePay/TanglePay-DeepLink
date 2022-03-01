@@ -18,7 +18,8 @@ Demo [here](https://tanglepay.github.io/TanglePay-DeepLink/).
 |Parameter   |Type    |Description|
 |---------   |--------|-----------|
 |iota_address|Required|Valid IOTA address in [Bech32 format](https://github.com/Wollac/protocol-rfcs/blob/master/text/0020-bech32-address-format/0020-bech32-address-format.md).|
-|value       |Required|Numbers of IOTA tokens to be transfered, e.g. 2000000 to send 2MIOTA tokens.
+|value       |Required|Numbers of IOTA tokens to be transfered, e.g. 2000000.
+|unit        |Optional|Unit to use for value transfer, e.g. Mi=1,000Ki=1,000,000i. For more details please refer to [unit-converter](https://www.npmjs.com/package/@iota/unit-converter).
 |merchant    |Optional|Merchant name, to be displayed on TanglePay send page.
 |item_desc   |Optional|Item description, to be displayed on TanglePay send page.
 |return_url  |Optional|Encoded URI string. When this is provided, the link will be displayed on TanglePay after send completes to allow redirection of users.

@@ -50,6 +50,11 @@
                   placeholder="Amount (Required)">
               </div>
               <div class="mb-3">
+                <label for="send_id_unit" class="form-label">Unit (Optional)</label>
+                <input type="text" class="form-control" id="send_id_unit" value="Mi"
+                  placeholder="Unit (Required)">
+              </div>
+              <div class="mb-3">
                 <label for="send_id_merchant" class="form-label">Merchant (Optional)</label>
                 <input type="text" class="form-control" id="send_id_merchant" value="TanglePay"
                   placeholder="Merchant (Optional)">
@@ -151,11 +156,14 @@
       var value5 = document.getElementById('send_id_url').value || ''
       value5 = encodeURIComponent(value5)
       var value6 = document.getElementById('send_id_network').value || ''
+      var value7 = document.getElementById('send_id_unit').value || ''
       var link =
         'tanglepay://send/' +
         value1 +
         '?value=' +
         value4 +
+        '&unit=' +
+        value7 +
         '&merchant=' +
         value2 +
         '&item_desc=' +

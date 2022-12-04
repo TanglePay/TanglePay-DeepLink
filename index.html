@@ -149,6 +149,16 @@
                                         placeholder="TokenId (Optional, Shimmer)"
                                     />
                                 </div>
+                                <div class="mb-3">
+                                    <label for="send_id_nftId" class="form-label">NftId (Optional, Shimmer)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="send_id_nftId"
+                                        value=""
+                                        placeholder="NftId (Optional, Shimmer)"
+                                    />
+                                </div>
                                 <a href="javascript:void(0)" class="btn btn-success" onclick="send()">Generate URL</a>
                             </form>
                             <div class="container">
@@ -259,6 +269,7 @@
                 var value7 = document.getElementById('send_id_unit').value || ''
                 var value8 = document.getElementById('send_id_tag').value || ''
                 var value9 = document.getElementById('send_id_assetId').value || ''
+                var value10 = document.getElementById('send_id_nftId').value || ''
                 var link =
                     'tanglepay://send/' +
                     value1 +
@@ -277,7 +288,9 @@
                     '&tag=' +
                     value8 +
                     '&assetId=' +
-                    value9
+                    value9 +
+                    '&nftId=' +
+                    value10
                 renderUrl(link, 'send-url', 'send-qr')
             }
 

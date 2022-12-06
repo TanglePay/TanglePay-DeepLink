@@ -1,199 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <title>DeepLink examples</title>
+    </head>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <title>DeepLink examples</title>
-</head>
-
-<body>
-  <div class="container">
-    <h1>Demo for TanglePay deeplinks.</h1>
-    <p>For more details, please refer to <a href="https://github.com/TanglePay/TanglePay-DeepLink.">https://github.com/TanglePay/TanglePay-DeepLink.</a></p>
-    <div id="accordion">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
-            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-              aria-controls="collapseOne">
-              Send API
-            </button>
-          </h5>
-        </div>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-            <form>
-              <h5><a href="https://github.com/TanglePay/TanglePay-DeepLink#api-send">Spec</a></h5>
-              <br/>
-              <div class="mb-3">
-                <label for="send_id_address" class="form-label">Target address</label>
-                <input type="text" class="form-control" aria-describedby="addressHelp" id="send_id_address"
-                  value="atoi1qqtz9lx2yqzv4qsvmf5rdyd4j6rz7yj7ermj8ezenajpvxjpex9vzelyqk6" placeholder="Required">
-                <div id="addressHelp" class="form-text">IOTA Address in Bech32 format.</div>
-              </div>
-              <div class="mb-3">
-                <label for="send_id_amount" class="form-label">Amount (Required)</label>
-                <input type="number" class="form-control" id="send_id_amount" value="1000000"
-                  placeholder="Amount (Required)">
-              </div>
-              <div class="mb-3">
-                <label for="send_id_unit" class="form-label">Unit (Optional)</label>
-                <input type="text" class="form-control" id="send_id_unit" value="Mi"
-                  placeholder="Unit (Required)">
-              </div>
-              <div class="mb-3">
-                <label for="send_id_merchant" class="form-label">Merchant (Optional)</label>
-                <input type="text" class="form-control" id="send_id_merchant" value="TanglePay"
-                  placeholder="Merchant (Optional)">
-              </div>
-              <div class="mb-3">
-                <label for="send_id_item" class="form-label">Item description (Optional)</label>
-                <input type="text" class="form-control" id="send_id_item" value="Cool NFT"
-                  placeholder="Item description (Optional)">
-              </div>
-              <div class="mb-3">
-                <label for="send_id_url" class="form-label">Return Url (Optional)</label>
-                <input type="text" class="form-control" id="send_id_url" value="https://tanglepay.com"
-                  placeholder="Return Url (Optional)">
-              </div>
-              <div class="mb-3">
-                <label for="send_id_network" class="form-label">Network (Optional)</label>
-                <input type="text" class="form-control" id="send_id_network" value="mainnet"
-                  placeholder="Network (Optional)">
-              </div>
-              <a href="javascript:void(0)" class="btn btn-success" onclick="send()">Generate URL</a>
-            </form>
-            <div class="container">
-              <a id='send-url'></a>
-              <p id='send-qr'></p>
+    <body>
+        <div class="container">
+            <h1>Demo for TanglePay deeplinks.</h1>
+            <p>
+                For more details, please refer to
+                <a href="https://github.com/TanglePay/TanglePay-DeepLink."
+                    >https://github.com/TanglePay/TanglePay-DeepLink.</a
+                >
+            </p>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button
+                                class="btn btn-link"
+                                data-toggle="collapse"
+                                data-target="#collapseOne"
+                                aria-expanded="true"
+                                aria-controls="collapseOne"
+                            >
+                                Send API
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <form>
+                                <h5><a href="https://github.com/TanglePay/TanglePay-DeepLink#api-send">Spec</a></h5>
+                                <br />
+                                <div class="mb-3">
+                                    <label for="send_id_address" class="form-label">Target address</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        aria-describedby="addressHelp"
+                                        id="send_id_address"
+                                        value="atoi1qqtz9lx2yqzv4qsvmf5rdyd4j6rz7yj7ermj8ezenajpvxjpex9vzelyqk6"
+                                        placeholder="Required"
+                                    />
+                                    <div id="addressHelp" class="form-text">IOTA Address in Bech32 format.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="send_id_amount" class="form-label">Amount (Required)</label>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="send_id_amount"
+                                        value="1000000"
+                                        placeholder="Amount (Required)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="send_id_unit" class="form-label">Unit (Optional)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="send_id_unit"
+                                        value="Mi"
+                                        placeholder="Unit (Required)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="send_id_merchant" class="form-label">Merchant (Optional)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="send_id_merchant"
+                                        value="TanglePay"
+                                        placeholder="Merchant (Optional)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="send_id_item" class="form-label">Item description (Optional)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="send_id_item"
+                                        value="Cool NFT"
+                                        placeholder="Item description (Optional)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="send_id_url" class="form-label">Return Url (Optional)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="send_id_url"
+                                        value="https://tanglepay.com"
+                                        placeholder="Return Url (Optional)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="send_id_network" class="form-label">Network (Optional)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="send_id_network"
+                                        value="mainnet"
+                                        placeholder="Network (Optional)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="send_id_tag" class="form-label">Tag (Optional, Shimmer)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="send_id_tag"
+                                        value=""
+                                        placeholder="Tag (Optional)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="send_id_assetId" class="form-label">TokenId (Optional, Shimmer)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="send_id_assetId"
+                                        value=""
+                                        placeholder="TokenId (Optional, Shimmer)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="send_id_nftId" class="form-label">NftId (Optional, Shimmer)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="send_id_nftId"
+                                        value=""
+                                        placeholder="NftId (Optional, Shimmer)"
+                                    />
+                                </div>
+                                <a href="javascript:void(0)" class="btn btn-success" onclick="send()">Generate URL</a>
+                            </form>
+                            <div class="container">
+                                <a id="send-url"></a>
+                                <p id="send-qr"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button
+                                class="btn btn-link collapsed"
+                                data-toggle="collapse"
+                                data-target="#collapseTwo"
+                                aria-expanded="false"
+                                aria-controls="collapseTwo"
+                            >
+                                Sign API
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <form>
+                                <h5><a href="https://github.com/TanglePay/TanglePay-DeepLink#api-sign">Spec</a></h5>
+                                <br />
+                                <div class="mb-3">
+                                    <label for="sign_id_content" class="form-label">Content (Required)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="sign_id_content"
+                                        value="I acked for the autenticity of associating this address with my account foo on bar.com"
+                                        placeholder="Content (Required)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sign_id_merchant" class="form-label">Merchant (Optional)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="sign_id_merchant"
+                                        value="TanglePay"
+                                        placeholder="Merchant (Optional)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sign_id_url" class="form-label">Return Url (Optional)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="sign_id_url"
+                                        value="https://tanglepay.com"
+                                        placeholder="Return Url (Optional)"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sign_id_network" class="form-label">Network (Optional)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="sign_id_network"
+                                        value="mainnet"
+                                        placeholder="Network (Optional)"
+                                    />
+                                </div>
+                                <a href="javascript:void(0)" class="btn btn-success" onclick="sign()">Generate URL</a>
+                            </form>
+                            <div class="container">
+                                <a id="sign-url"></a>
+                                <p id="sign-qr"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-              aria-expanded="false" aria-controls="collapseTwo">
-              Sign API
-            </button>
-          </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-          <div class="card-body">
-            <form>
-              <h5><a href="https://github.com/TanglePay/TanglePay-DeepLink#api-sign">Spec</a></h5>
-              <br/>
-              <div class="mb-3">
-                <label for="sign_id_content" class="form-label">Content (Required)</label>
-                <input type="text" class="form-control" id="sign_id_content"
-                  value="I acked for the autenticity of associating this address with my account foo on bar.com"
-                  placeholder="Content (Required)">
-              </div>
-              <div class="mb-3">
-                <label for="sign_id_merchant" class="form-label">Merchant (Optional)</label>
-                <input type="text" class="form-control" id="sign_id_merchant" value="TanglePay"
-                  placeholder="Merchant (Optional)">
-              </div>
-              <div class="mb-3">
-                <label for="sign_id_url" class="form-label">Return Url (Optional)</label>
-                <input type="text" class="form-control" id="sign_id_url" value="https://tanglepay.com"
-                  placeholder="Return Url (Optional)">
-              </div>
-              <div class="mb-3">
-                <label for="sign_id_network" class="form-label">Network (Optional)</label>
-                <input type="text" class="form-control" id="sign_id_network" value="mainnet"
-                  placeholder="Network (Optional)">
-              </div>
-              <a href="javascript:void(0)" class="btn btn-success" onclick="sign()">Generate URL</a>
-            </form>
-            <div class="container">
-              <a id='sign-url'></a>
-              <p id='sign-qr'></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    function renderUrl(url, url_id, qr_id) {
-      document.getElementById(url_id).href = url;
-      document.getElementById(url_id).innerText = url;
+        <script>
+            function renderUrl(url, url_id, qr_id) {
+                document.getElementById(url_id).href = url
+                document.getElementById(url_id).innerText = url
 
-      const baseImgUrl = 'http://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=${DATA}&qzone=1&margin=0&size=250x250&ecc=L';
-      const qrCodeUrl = baseImgUrl.replace('${DATA}', escape(url));
+                const baseImgUrl =
+                    'http://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=${DATA}&qzone=1&margin=0&size=250x250&ecc=L'
+                const qrCodeUrl = baseImgUrl.replace('${DATA}', escape(url))
 
-      if (document.getElementById(qr_id).firstElementChild) {
-        const img = document.getElementById(qr_id).firstElementChild;
-        img.src = qrCodeUrl;
-      } else {
-        const img = document.createElement("img");
-        img.src = qrCodeUrl
-        document.getElementById(qr_id).appendChild(img);
-      }
-    }
+                if (document.getElementById(qr_id).firstElementChild) {
+                    const img = document.getElementById(qr_id).firstElementChild
+                    img.src = qrCodeUrl
+                } else {
+                    const img = document.createElement('img')
+                    img.src = qrCodeUrl
+                    document.getElementById(qr_id).appendChild(img)
+                }
+            }
 
-    function send() {
-      console.log("send")
-      var value1 = document.getElementById('send_id_address').value || ''
-      var value2 = document.getElementById('send_id_merchant').value || ''
-      var value3 = document.getElementById('send_id_item').value || ''
-      var value4 = document.getElementById('send_id_amount').value || ''
-      var value5 = document.getElementById('send_id_url').value || ''
-      value5 = encodeURIComponent(value5)
-      var value6 = document.getElementById('send_id_network').value || ''
-      var value7 = document.getElementById('send_id_unit').value || ''
-      var link =
-        'tanglepay://send/' +
-        value1 +
-        '?value=' +
-        value4 +
-        '&unit=' +
-        value7 +
-        '&merchant=' +
-        value2 +
-        '&item_desc=' +
-        value3 +
-        '&return_url=' +
-        value5 +
-        '&network=' +
-        value6
-      renderUrl(link, "send-url", "send-qr")
-    }
+            function send() {
+                console.log('send')
+                var value1 = document.getElementById('send_id_address').value || ''
+                var value2 = document.getElementById('send_id_merchant').value || ''
+                var value3 = document.getElementById('send_id_item').value || ''
+                var value4 = document.getElementById('send_id_amount').value || ''
+                var value5 = document.getElementById('send_id_url').value || ''
+                value5 = encodeURIComponent(value5)
+                var value6 = document.getElementById('send_id_network').value || ''
+                var value7 = document.getElementById('send_id_unit').value || ''
+                var value8 = document.getElementById('send_id_tag').value || ''
+                var value9 = document.getElementById('send_id_assetId').value || ''
+                var value10 = document.getElementById('send_id_nftId').value || ''
+                var link =
+                    'tanglepay://send/' +
+                    value1 +
+                    '?value=' +
+                    value4 +
+                    '&unit=' +
+                    value7 +
+                    '&merchant=' +
+                    value2 +
+                    '&item_desc=' +
+                    value3 +
+                    '&return_url=' +
+                    value5 +
+                    '&network=' +
+                    value6 +
+                    '&tag=' +
+                    value8 +
+                    '&assetId=' +
+                    value9 +
+                    '&nftId=' +
+                    value10
+                renderUrl(link, 'send-url', 'send-qr')
+            }
 
-    function sign() {
-      var value1 = document.getElementById('sign_id_merchant').value || ''
-      var value2 = document.getElementById('sign_id_url').value || ''
-      value2 = encodeURIComponent(value2)
-      var value3 = document.getElementById('sign_id_content').value || ''
-      value3 = encodeURIComponent(value3)
-      var value4 = document.getElementById('sign_id_network').value || ''
-      var link =
-        'tanglepay://sign?content=' +
-        value3 +
-        '&return_url=' +
-        value2 +
-        '&network=' +
-        value4 +
-        '&merchant=' +
-        value1
-      renderUrl(link, "sign-url", "sign-qr")
-    }
-  </script>
-</body>
-
+            function sign() {
+                var value1 = document.getElementById('sign_id_merchant').value || ''
+                var value2 = document.getElementById('sign_id_url').value || ''
+                value2 = encodeURIComponent(value2)
+                var value3 = document.getElementById('sign_id_content').value || ''
+                value3 = encodeURIComponent(value3)
+                var value4 = document.getElementById('sign_id_network').value || ''
+                var link =
+                    'tanglepay://sign?content=' +
+                    value3 +
+                    '&return_url=' +
+                    value2 +
+                    '&network=' +
+                    value4 +
+                    '&merchant=' +
+                    value1
+                renderUrl(link, 'sign-url', 'sign-qr')
+            }
+        </script>
+    </body>
 </html>

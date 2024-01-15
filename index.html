@@ -80,13 +80,23 @@
                                     />
                                 </div>
                                 <div class="mb-3">
+                                    <label for="send_id_metadata" class="form-label">Metadata (Optional)</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="send_id_metadata"
+                                        value=""
+                                        placeholder="Metadata (Optional)"
+                                    />
+                                </div>
+                                <div class="mb-3">
                                     <label for="send_id_unit" class="form-label">Unit (Optional)</label>
                                     <input
                                         type="text"
                                         class="form-control"
                                         id="send_id_unit"
-                                        value="Mi"
-                                        placeholder="Unit (Required)"
+                                        value="IOTA"
+                                        placeholder="Unit (Optional)"
                                     />
                                 </div>
                                 <div class="mb-3">
@@ -270,6 +280,7 @@
                 var value8 = document.getElementById('send_id_tag').value || ''
                 var value9 = document.getElementById('send_id_assetId').value || ''
                 var value10 = document.getElementById('send_id_nftId').value || ''
+                var metadata = document.getElementById('send_id_metadata').value || ''
                 var link =
                     'tanglepay://send/' +
                     value1 +
@@ -290,7 +301,9 @@
                     '&assetId=' +
                     value9 +
                     '&nftId=' +
-                    value10
+                    value10 + 
+                    '&metadata=' + 
+                    metadata
                 renderUrl(link, 'send-url', 'send-qr')
             }
 
